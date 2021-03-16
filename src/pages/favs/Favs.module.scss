@@ -1,0 +1,84 @@
+.favs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+.fav {
+  position: relative;
+}
+.fav__link {
+  --light: 95%;
+  --color: var(--color-dark);
+  --bgcolor: #fffd;
+  --icon-size: 1rem;
+  --has-icon: 1;
+  display: flex;
+  align-items: center;
+  height: 2.75rem;
+  padding: 0.5em calc(1.5em + (0.25em * var(--has-icon))) 0.5em 1.5em;
+  color: var(--color);
+  background: var(--bgcolor);
+  border: none;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.0375);
+  border-radius: 2em;
+  font-size: var(--font-size-small);
+  line-height: 1;
+  transition: 0.25s ease-in-out;
+
+  &:hover {
+    --color: var(--hover-color, var(--color-dark)) !important;
+    --bgcolor: var(--hover-bgcolor, #fff) !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.0375), 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .icon {
+    color: #0003;
+  }
+}
+.fav__link img {
+  flex-shrink: 0;
+  margin-right: 0.75em;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+.fav__link span {
+  flex-grow: 1;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: center;
+}
+.fav__menu {
+  position: absolute;
+  top: -0.75rem;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  gap: 0.25rem;
+  // opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+  transition: 0.2s ease-in-out 0s;
+
+  .fav:hover & {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 1s;
+    transform: none;
+  }
+
+  button {
+    opacity: 0.8;
+    box-shadow: #0001 0 1px, #0001 0 1px 3px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    color: var(--color-medium);
+  }
+}

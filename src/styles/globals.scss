@@ -1,0 +1,255 @@
+:root {
+  --font-sans-serif: "Red Hat Display", sans-serif;
+  --font-size-xxsmall: 0.625rem;
+  --font-size-xsmall: 0.75rem;
+  --font-size-small: 0.875rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.125rem;
+  --font-size-xlarge: 1.25rem;
+
+  --hue-primary: 235;
+
+  // --color-primary: #195de6;
+  // --color-primary-rgb: 25,93,230;
+  // --color-primary-contrast: #ffffff;
+  // --color-primary-contrast-rgb: 255,255,255;
+  // --color-primary-shade: #1652ca;
+  // --color-primary-tint: #306de9;
+  --color-primary: #5260ff;
+  --color-primary-rgb: 82, 96, 255;
+  --color-primary-contrast: #ffffff;
+  --color-primary-contrast-rgb: 255, 255, 255;
+  --color-primary-shade: #4854e0;
+  --color-primary-tint: #6370ff;
+
+  --color-secondary: #3dc2ff;
+  --color-secondary-rgb: 61, 194, 255;
+  --color-secondary-contrast: #ffffff;
+  --color-secondary-contrast-rgb: 255, 255, 255;
+  --color-secondary-shade: #36abe0;
+  --color-secondary-tint: #50c8ff;
+
+  --color-tertiary: #5260ff;
+  --color-tertiary-rgb: 82, 96, 255;
+  --color-tertiary-contrast: #ffffff;
+  --color-tertiary-contrast-rgb: 255, 255, 255;
+  --color-tertiary-shade: #4854e0;
+  --color-tertiary-tint: #6370ff;
+
+  --color-success: #2dd36f;
+  --color-success-rgb: 45, 211, 111;
+  --color-success-contrast: #ffffff;
+  --color-success-contrast-rgb: 255, 255, 255;
+  --color-success-shade: #28ba62;
+  --color-success-tint: #42d77d;
+
+  --color-warning: #ffc409;
+  --color-warning-rgb: 255, 196, 9;
+  --color-warning-contrast: #000000;
+  --color-warning-contrast-rgb: 0, 0, 0;
+  --color-warning-shade: #e0ac08;
+  --color-warning-tint: #ffca22;
+
+  --color-danger: #eb445a;
+  --color-danger-rgb: 235, 68, 90;
+  --color-danger-contrast: #ffffff;
+  --color-danger-contrast-rgb: 255, 255, 255;
+  --color-danger-shade: #cf3c4f;
+  --color-danger-tint: #ed576b;
+
+  --color-dark: #525f7a;
+  --color-dark-rgb: 82, 95, 122;
+  --color-dark-contrast: #ffffff;
+  --color-dark-contrast-rgb: 255, 255, 255;
+  --color-dark-shade: #48546b;
+  --color-dark-tint: #636f87;
+
+  --color-medium: #8592ad;
+  --color-medium-rgb: 133, 146, 173;
+  --color-medium-contrast: #000000;
+  --color-medium-contrast-rgb: 0, 0, 0;
+  --color-medium-shade: #758098;
+  --color-medium-tint: #919db5;
+
+  --color-light: #c2c9d6;
+  --color-light-rgb: 194, 201, 214;
+  --color-light-contrast: #000000;
+  --color-light-contrast-rgb: 0, 0, 0;
+  --color-light-shade: #abb1bc;
+  --color-light-tint: #c8ceda;
+
+  --color-gray-85: hsl(var(--hue-primary), 20%, 85%);
+  --color-gray-90: hsl(var(--hue-primary), 20%, 90%);
+  --color-gray-95: hsl(var(--hue-primary), 20%, 95%);
+  --color-gray-97-5: hsl(var(--hue-primary), 20%, 97.5%);
+
+  --container-width: calc(1.5rem * 35);
+  --container-padding: 1rem;
+}
+
+html {
+  font: 16px/1.5 var(--font-sans-serif);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  cursor: default;
+  letter-spacing: 0.025em;
+  background: var(--color-gray-97-5);
+}
+
+body {
+  margin: 0;
+  color: var(--color-dark);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
+::selection {
+  background: var(--color-gray-90);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: calc(1em + 0.25rem);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 1rem 0;
+}
+
+a {
+  color: var(--color-primary, inherit);
+  text-decoration: none;
+}
+
+h1,
+p,
+div,
+span,
+strong {
+  color: var(--color-base, inherit);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+svg {
+  fill: var(--color-base, currentColor);
+}
+
+button {
+  cursor: pointer;
+}
+
+.button {
+  --height: 44px;
+  --font-size: 11px;
+  --bg-color: var(--color-base, #fff);
+  --border-color: var(--color-base, var(--color-gray-90));
+  --outline-color: rgba(var(--color-primary-rgb), 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--height);
+  appearance: none;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--border-color);
+  font-family: inherit;
+  font-size: var(--font-size);
+  font-weight: 700;
+  line-height: calc(1em + 0.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  word-spacing: 0.25em;
+  border-radius: 0.5rem;
+  color: var(--color-contrast, var(--color-dark));
+  background: var(--bg-color);
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--outline-color) 0 0 0 3px;
+  }
+
+  // Colors
+  &--transparent {
+    --bg-color: transparent;
+    --border-color: transparent;
+    color: var(--color-base, inherit);
+  }
+
+  // Sizes
+  &--small {
+    --height: 36px;
+    --font-size: var(--font-size-xsmall);
+  }
+  &--large {
+    --height: 52px;
+    --font-size: var(--font-size-small);
+  }
+
+  &--circle {
+    --size: 2.5rem;
+    --icon-size: 1.5rem;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+
+    .icon {
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+
+    &--small {
+      --size: 1.75rem;
+      --icon-size: 1rem;
+    }
+  }
+
+  &--link {
+    padding: 0;
+    background: transparent;
+    color: var(--color-base, inherit);
+    border: none;
+  }
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.title {
+  display: flex;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 0.25rem;
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+    border-radius: 2em;
+    background: var(--color-primary);
+  }
+}
+
+@import "../components/modal/Modal.module.scss";

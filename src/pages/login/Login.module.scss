@@ -1,0 +1,21 @@
+.user-card {
+  display: flex;
+  align-items: center;
+}
+
+.user-card .avatar {
+  // margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.avatar {
+  --size: 3.5rem;
+  flex-shrink: 0;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
+  // padding: 3px;
+  // border: 1px solid var(--color-gray-90);
+  border-radius: 50%;
+  box-sizing: content-box;
+}

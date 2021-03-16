@@ -1,0 +1,173 @@
+// Colors
+.color-primary {
+  --color-base: var(--color-primary);
+  --color-base-rgb: var(--color-primary-rgb);
+  --color-contrast: var(--color-primary-contrast);
+  --color-contrast-rgb: var(--color-primary-contrast-rgb);
+  --color-shade: var(--color-primary-shade);
+  --color-tint: var(--color-primary-tint);
+}
+.color-secondary {
+  --color-base: var(--color-secondary);
+  --color-base-rgb: var(--color-secondary-rgb);
+  --color-contrast: var(--color-secondary-contrast);
+  --color-contrast-rgb: var(--color-secondary-contrast-rgb);
+  --color-shade: var(--color-secondary-shade);
+  --color-tint: var(--color-secondary-tint);
+}
+.color-tertiary {
+  --color-base: var(--color-tertiary);
+  --color-base-rgb: var(--color-tertiary-rgb);
+  --color-contrast: var(--color-tertiary-contrast);
+  --color-contrast-rgb: var(--color-tertiary-contrast-rgb);
+  --color-shade: var(--color-tertiary-shade);
+  --color-tint: var(--color-tertiary-tint);
+}
+.color-success {
+  --color-base: var(--color-success);
+  --color-base-rgb: var(--color-success-rgb);
+  --color-contrast: var(--color-success-contrast);
+  --color-contrast-rgb: var(--color-success-contrast-rgb);
+  --color-shade: var(--color-success-shade);
+  --color-tint: var(--color-success-tint);
+}
+.color-waring {
+  --color-base: var(--color-waring);
+  --color-base-rgb: var(--color-waring-rgb);
+  --color-contrast: var(--color-waring-contrast);
+  --color-contrast-rgb: var(--color-waring-contrast-rgb);
+  --color-shade: var(--color-waring-shade);
+  --color-tint: var(--color-waring-tint);
+}
+.color-danger {
+  --color-base: var(--color-danger);
+  --color-base-rgb: var(--color-danger-rgb);
+  --color-contrast: var(--color-danger-contrast);
+  --color-contrast-rgb: var(--color-danger-contrast-rgb);
+  --color-shade: var(--color-danger-shade);
+  --color-tint: var(--color-danger-tint);
+}
+.color-dark {
+  --color-base: var(--color-dark);
+  --color-base-rgb: var(--color-dark-rgb);
+  --color-contrast: var(--color-dark-contrast);
+  --color-contrast-rgb: var(--color-dark-contrast-rgb);
+  --color-shade: var(--color-dark-shade);
+  --color-tint: var(--color-dark-tint);
+}
+.color-medium {
+  --color-base: var(--color-medium);
+  --color-base-rgb: var(--color-medium-rgb);
+  --color-contrast: var(--color-medium-contrast);
+  --color-contrast-rgb: var(--color-medium-contrast-rgb);
+  --color-shade: var(--color-medium-shade);
+  --color-tint: var(--color-medium-tint);
+}
+.color-light {
+  --color-base: var(--color-light);
+  --color-base-rgb: var(--color-light-rgb);
+  --color-contrast: var(--color-light-contrast);
+  --color-contrast-rgb: var(--color-light-contrast-rgb);
+  --color-shade: var(--color-light-shade);
+  --color-tint: var(--color-light-tint);
+}
+
+// Flex
+[data-flex] {
+  display: flex;
+}
+[data-flex~="justify-center"] {
+  justify-content: center;
+}
+[data-flex~="align-center"] {
+  align-items: center;
+}
+[data-flex~="grow"] {
+  flex-grow: 1;
+}
+
+// Margin
+.margin {
+  &-top {
+    margin-top: 1rem;
+  }
+}
+
+// Padding
+.no-padding {
+  padding: 0 !important;
+}
+
+// Border
+.no-border {
+  border: none;
+}
+
+// Text
+[data-text~="small"] {
+  font-size: var(--font-size-small);
+}
+[data-text~="xsmall"] {
+  font-size: var(--font-size-xsmall);
+}
+[data-text~="xxsmall"] {
+  font-size: var(--font-size-xxsmall);
+}
+[data-text~="500"] {
+  font-weight: 500;
+}
+
+// Grid
+.grid {
+  --gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  width: 100%;
+}
+.col {
+  --col: 1/1;
+  --percent: calc(100% * var(--col));
+  width: var(--percent);
+}
+
+// FIELD
+.field {
+  --padding-top: 1.75rem;
+  --padding-bottom: 0.5rem;
+  --padding-horizontal: 0.75rem;
+  --active-color: rgba(var(--color-primary-rgb), 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.field__label {
+  position: absolute;
+  top: 0.75rem;
+  left: var(--padding-horizontal);
+  line-height: 1;
+  font-size: 12px;
+  margin-bottom: 0.25rem;
+  color: var(--color-medium);
+  font-weight: 500;
+  pointer-events: none;
+}
+.field__input {
+  appearance: none;
+  padding: var(--padding-top) var(--padding-horizontal) var(--padding-bottom);
+  border: 1px solid var(--color-gray-95);
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  color: var(--color-dark);
+  transition: 0.3s ease;
+  cursor: text;
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--active-color) 0 0 0 3px;
+  }
+
+  &::placeholder {
+    color: var(--color-light);
+  }
+}
