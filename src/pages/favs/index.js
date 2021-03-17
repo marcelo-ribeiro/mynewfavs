@@ -24,23 +24,19 @@ function Favs() {
     }
     hideModal();
   };
-
   const editFav = (fav) => {
     setEditMode(true);
     setFav({ ...fav });
     setModalIsVisible(true);
   };
-
   const deleteFav = ({ NO_ID_FIELD }) => {
     if (confirm("Esse item será excuído.")) {
       userFavsCollection.doc(NO_ID_FIELD).delete();
     }
   };
-
   const increaseFavClicks = ({ NO_ID_FIELD, ...fav }) => {
     userFavsCollection.doc(NO_ID_FIELD).update({ ...fav, clicks: fav.clicks + 1 });
   };
-
   const hideModal = () => {
     setModalIsVisible(false);
     setTimeout(() => {
@@ -52,7 +48,7 @@ function Favs() {
   if (status === "loading") {
     return (
       <div className="container">
-        <p>Carregando seus favoritos...</p>
+        <p data-text="center">Carregando seus favoritos...</p>
       </div>
     );
   }
@@ -63,30 +59,36 @@ function Favs() {
         <section className={styles.favs}>
           <button
             className={`${styles.fav__link}`}
-            style={{ "--has-icon": 0, "--bgcolor": "var(--color-primary)", "--color": "#fff", "--hover-bgcolor": "var(--color-primary-tint)", "--hover-color": "#fff" }}
-            onClick={() => setModalIsVisible(true)}
+            style={{
+              "--has-icon": 0,
+              "--bgcolor": "var(--color-primary)",
+              "--color": "#fff",
+              "--hover-bgcolor": "var(--color-primary-tint)",
+              "--hover-color": "#fff",
+            }}
             title="Adicionar favorito"
+            onClick={() => setModalIsVisible(true)}
           >
-            <svg
-              className="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
+            <svg className="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
             </svg>
           </button>
           {favs.map((item) => (
             <div className={styles.fav} key={item.NO_ID_FIELD}>
-              <a className={styles.fav__link} href={item.uri} target="_blank" title={`Acessar ${item.name}`} onClick={() => increaseFavClicks(item)}>
+              <a
+                className={styles.fav__link}
+                href={item.uri}
+                target="_blank"
+                title={`Acessar ${item.name}`}
+                onClick={() => increaseFavClicks(item)}
+              >
                 <img className="list--icon" src={urlBase + new URL(item.uri).origin} alt={item.name} />
                 <span>{item.name}</span>
               </a>
 
               <div className={styles.fav__menu}>
                 <button
-                  className="button button--circle button--circle--small no-padding no-border"
+                  className="button button--circle button--circle--small p-0 no-border"
                   onClick={() => editFav(item)}
                   title="Editar favorito"
                 >
@@ -132,7 +134,7 @@ function Favs() {
             />
           </label>
 
-          <div className="grid margin-top">
+          <div className="grid mt-0-5">
             <button className="button" type="button" data-flex="grow" onClick={hideModal}>
               Cancelar
             </button>

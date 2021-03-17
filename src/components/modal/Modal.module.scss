@@ -8,8 +8,8 @@
   align-items: flex-end;
   width: 100vw;
   height: 100vh;
-  // background: rgba(var(--color-primary-rgb), 0.5);
-  backdrop-filter: blur(6px);
+  background: rgba(var(--color-dark-rgb), 0.2);
+  backdrop-filter: blur(4px);
   pointer-events: none;
   opacity: 0;
   transition: 0.3s ease-in-out 0.15s;
