@@ -12,15 +12,26 @@ function Favs() {
   const favsCollection = useFirestore().collection("favs");
   const userFavsCollection = favsCollection.doc(user?.uid).collection("favs");
   const { status, data: favs } = useFirestoreCollectionData(userFavsCollection.orderBy("clicks", "desc"));
-  const urlBase = "http://favsapi.beepix.com.br/api/icon?uri=";
+  const urlBase = "https://favsapi.beepix.com.br/api/icon?uri=";
 
-  const submitFav = (event) => {
+  const getIcon = async () => {
+    try {
+      let response = await fetch(`${urlBase}${new URL(fav.uri).origin}`);
+      return response.text();
+    } catch(e) {
+      console.log(e);
+    }
+  };
+
+  const submitFav = async (event) => {
     event.preventDefault();
+
+    const icon = await getIcon();
     if (!editMode) {
-      userFavsCollection.add({ ...fav, createdAt: new Date() });
+      userFavsCollection.add({ ...fav, icon, createdAt: new Date() });
     } else {
       const { NO_ID_FIELD, ...rest } = fav;
-      userFavsCollection.doc(NO_ID_FIELD).update({ ...rest, updatedAt: new Date() });
+      userFavsCollection.doc(NO_ID_FIELD).update({ ...rest, icon, updatedAt: new Date() });
     }
     hideModal();
   };
@@ -31,7 +42,8 @@ function Favs() {
   };
   const deleteFav = ({ NO_ID_FIELD }) => {
     if (confirm("Esse item será excuído.")) {
-      userFavsCollection.doc(NO_ID_FIELD).delete();
+      hideModal();
+      setTimeout(() => userFavsCollection.doc(NO_ID_FIELD).delete(), 300);
     }
   };
   const increaseFavClicks = ({ NO_ID_FIELD, ...fav }) => {
@@ -82,7 +94,7 @@ function Favs() {
                 title={`Acessar ${item.name}`}
                 onClick={() => increaseFavClicks(item)}
               >
-                <img className="list--icon" src={urlBase + new URL(item.uri).origin} alt={item.name} />
+                <img className="list--icon" src={item.icon} alt={item.name} />
                 <span>{item.name}</span>
               </a>
 
